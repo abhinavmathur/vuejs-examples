@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">
+      Multiplication Tables
+    </h1>
+
+    <div class="form-group">
+      <label for="">Multiplication tables of</label>
+      <input type="number" v-model.number="table" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="">Multiply for</label>
+      <input type="number" v-model.number="range" class="form-control" required>
+    </div>
+
+    <ul class="list-group">
+      <li v-for="index in range" class="list-group-item">
+        {{ table }} * {{ index }} = {{ (index) * table }}
+      </li>
+    </ul>
+
+  </div>
+
+  {{ $data | json }}
+</div>
+
+<% content_for :js do %>
+    <%= javascript_pack_tag 'ajaxtest/app' %>
+    <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js' %>
+    <script type="text/javascript" charset="utf-8">
+        new Vue({
+            el: '.container',
+            data: {
+                table: 0,
+                range: 0
+            }
+        })
+    </script>
+<% end %>
