@@ -1,13 +1,15 @@
 <template>
     <div>
         <div class="progress">
-            <div class="progress-bar bg-success"
+            <div class="progress-bar"
+                 :class="{'progress-bar-primary': progressWidth >= 0 && progressWidth <= 50, 'progress-bar-success': progressWidth >= 50 && progressWidth <= 100}"
                  role="progressbar"
-                 style="width: 25%"
                  :style="{ width: progressWidth + '%'}"
-                 aria-valuenow="25"
+                 :aria-valuenow="progressWidth"
                  aria-valuemin="0"
-                 aria-valuemax="100"></div>
+                 aria-valuemax="100">
+                {{ progressWidth }}% complete
+            </div>
         </div>
     </div>
 </template>
@@ -16,9 +18,15 @@
 
     export default {
         props: ['progressWidth']
+
     }
 </script>
 
 <style>
-
+    .bg-danger {
+        color: red;
+    }
+    .bg-warning {
+        color: yellow;
+    }
 </style>
