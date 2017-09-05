@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'ffaker'
+
+1000.times do |t|
+  name = FFaker::Name.name
+  details = FFaker::Lorem.paragraphs
+  age = (rand * 100).to_i
+  occupation = FFaker::Job.title
+  rank = (rand * 10000).to_i
+  Person.create(name: name, details: details, age: age, occupation: occupation, rank: rank)
+end

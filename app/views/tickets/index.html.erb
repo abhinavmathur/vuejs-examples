@@ -14,7 +14,7 @@
       <input type="number" v-model.number="range" class="form-control" required>
     </div>
 
-    <ul class="list-group">
+    <ul class="list-group" v-show="!(range == '')">
       <li v-for="index in range" class="list-group-item">
         {{ table }} * {{ index }} = {{ (index) * table }}
       </li>
