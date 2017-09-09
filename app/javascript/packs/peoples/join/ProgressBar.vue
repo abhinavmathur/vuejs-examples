@@ -2,7 +2,7 @@
     <div>
         <div class="progress">
             <div class="progress-bar"
-                 :class="{'progress-bar-primary': progressWidth >= 0 && progressWidth <= 50, 'progress-bar-success': progressWidth >= 50 && progressWidth <= 100}"
+                 :class="classObject"
                  role="progressbar"
                  :style="{ width: progressWidth + '%'}"
                  :aria-valuenow="progressWidth"
@@ -17,7 +17,15 @@
 <script>
 
     export default {
-        props: ['progressWidth']
+        props: ['progressWidth'],
+        computed: {
+            classObject(){
+                return {
+                    'progress-bar-primary': this.progressWidth >= 0 && this.progressWidth <= 50,
+                    'progress-bar-success': this.progressWidth >= 50 && this.progressWidth <= 100
+                }
+            }
+        }
 
     }
 </script>

@@ -3,13 +3,13 @@
         <div class="container">
             <progress-bar :progressWidth="progressWidth"></progress-bar>
         </div>
-
-        <input type="number" v-model.number="input_value">
+        <UploadImage></UploadImage>
     </div>
 </template>
 
 <script>
     import ProgressBar from './ProgressBar.vue'
+    import UploadImage from './UploadImage.vue'
 
     export default {
         data() {
@@ -28,7 +28,8 @@
             }
         },
         components: {
-            ProgressBar: ProgressBar
+            ProgressBar: ProgressBar,
+            UploadImage: UploadImage
         }
     }
 
