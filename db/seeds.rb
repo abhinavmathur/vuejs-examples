@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'ffaker'
 
+=begin
 1000.times do |t|
   name = FFaker::Name.name
   details = FFaker::Lorem.paragraphs
@@ -14,4 +15,14 @@ require 'ffaker'
   occupation = FFaker::Job.title
   rank = (rand * 10000).to_i
   Person.create(name: name, details: details, age: age, occupation: occupation, rank: rank)
+end
+=end
+
+15000.times do |t|
+  first_name = FFaker::Name.first_name
+  last_name = FFaker::Name.last_name
+  phone = FFaker::PhoneNumber.short_phone_number
+  email = FFaker::Internet.unique.email
+  country = FFaker::Address.country
+  Customer.create(first_name: first_name, last_name: last_name, email: email, phone: phone, country: country)
 end

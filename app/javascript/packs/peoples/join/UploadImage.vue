@@ -7,7 +7,9 @@
                         <img src="../join/images/avatar_placeholder.png" class="img-responsive img-thumbnail" alt="">
                         <br>
                         <div class="text-center">
-                            <button class="btn btn-success btn-block"></button>
+                            <button class="btn btn-success"
+                                    @click="changeText"
+                            ><strong ref="input">Select Image</strong></button>
                         </div>
                     </div>
                 </div>
@@ -18,7 +20,11 @@
 
 <script>
     export default {
-
+        methods: {
+            changeText(){
+                this.$refs.input.value = 'Changed!'
+            }
+        }
     }
 
 </script>

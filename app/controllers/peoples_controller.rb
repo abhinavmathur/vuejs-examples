@@ -36,6 +36,10 @@ class PeoplesController < ApplicationController
 
   end
 
+  def image_upload
+    raise params.inspect
+  end
+
   private
 
   def filter_params
